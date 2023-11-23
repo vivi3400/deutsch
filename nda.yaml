@@ -1,0 +1,37 @@
+i:
+  N: ich
+  D: mir
+  A: mich
+you:
+  N: du
+  D: dir
+  A: dich
+he:
+  N: er
+  D: ihm
+  A: ihn
+she:
+  N: sie
+  D: ihr
+  A: sie
+it:
+  N: es
+  D: ihm
+  A: es
+we:
+  N: wir
+  D: uns
+  A: uns
+youguys:
+  N: ihr
+  D: euch
+  A: euch
+them:
+  N: sie
+  D: ihnen
+  A: sie
+You:
+  N: Sie
+  D: Ihnen
+  A: Sie
+
