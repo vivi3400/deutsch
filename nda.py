@@ -20,7 +20,7 @@ def conjugation(verb, N):
             return "gebe"
         elif N == "you":
             return "gibst"
-        elif N == "he" or "she" or "es" or "youguys":
+        elif N == "he" or N == "she" or N == "es" or N == "youguys":
             return "gibt"
         elif N == "we":
             return "geben"
@@ -31,7 +31,7 @@ def conjugation(verb, N):
 def check_n_a():
     personal_pronoun = get_yaml("nda.yaml")
     # 随机出题
-    N_proun = random.choice(list(personal_pronoun))
+    N_proun = random.choice(list(personal_pronoun)) 
     A_proun = random.choice(list(personal_pronoun))
     verb_eng = "give"
     ques = "{} {} {} ".format(N_proun,verb_eng, A_proun)
