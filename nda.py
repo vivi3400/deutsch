@@ -13,6 +13,17 @@ def get_yaml(fileName):
     d = yaml.load(config,Loader=yaml.FullLoader)  # 用load方法转字典
     return d
 
+def get_input_and_verify(answer):
+    # input_str = input("Enter your answer: \n").strip()
+    input_str = input("").strip()
+
+    if input_str == answer:
+        print('Correct')
+    else:
+        print('Wrong! correct Answer is : {} !'.format(answer))
+    print('--------------')    
+
+
 def get_verb_vi():
     # 随机获取动词
     verb_conjugation = get_yaml("verb_vi.yaml")
@@ -28,18 +39,13 @@ def check_n_a():
     personal_pronoun = get_yaml("nda.yaml")
     N_proun = random.choice(list(personal_pronoun)) 
     A_proun = random.choice(list(personal_pronoun))
-    verb_eng = "give"
+    verb_eng = "love"
     ques = "{} {} {} ".format(N_proun,verb_eng, A_proun)
     #一格用N，四格用A的数据
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['A'])
     print(ques)
-    input_str = input("Enter your answer: \n").strip()
-
-    if input_str == answer:
-        print('Correct')
-    else:
-        print('Wrong! correct Answer is : {} !'.format(answer))
+    get_input_and_verify(answer)
 
 def check_n_d():
     # 随机出题，校验一格三格熟悉度
@@ -52,17 +58,13 @@ def check_n_d():
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['D'])
     print(ques)
-    # input_str = input("Enter your answer: \n").strip()
-    input_str = input("").strip()
 
-    if input_str == answer:
-        print('Correct')
-    else:
-        print('Wrong! correct Answer is : {} !'.format(answer))
-    print('--------------')    
-
+    get_input_and_verify(answer)
 
 if __name__ == "__main__":
+    ques_list = [check_n_d, check_n_a]
     while True:
-        check_n_d()
+        # 随机出题
+        random.choice(ques_list)()
+        # check_n_d()
     
