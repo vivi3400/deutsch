@@ -14,7 +14,9 @@ def get_yaml(fileName) -> dict:
     return d
 
 def get_input_and_verify(answer):
-    # input_str = input("Enter your answer: \n").strip()
+    '''
+    根据input来校验结果
+    '''
     input_str = input("").strip()
 
     if input_str == answer:
@@ -41,10 +43,10 @@ def check_n_a():
     A_proun = random.choice(list(personal_pronoun))
     verb_eng = "love"
     ques = "{} {} {} ".format(N_proun,verb_eng, A_proun)
+    print(ques)
     #一格用N，四格用A的数据
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['A'])
-    print(ques)
     get_input_and_verify(answer)
 
 def check_n_d():
@@ -54,10 +56,11 @@ def check_n_d():
     A_proun = random.choice(list(personal_pronoun))
     verb_eng = get_verb_vi() 
     ques = "{} {} {} ".format(N_proun,verb_eng, A_proun)
+    print(ques)
     #一格用N，四格用A的数据
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['D'])
-    print(ques)
+
 
     get_input_and_verify(answer)
 
