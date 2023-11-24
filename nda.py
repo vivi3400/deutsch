@@ -13,51 +13,25 @@ def get_yaml(fileName):
     d = yaml.load(config,Loader=yaml.FullLoader)  # 用load方法转字典
     return d
 
-def conjugation(verb, N):
-
-    if verb == "give":
-        if N == "i":
-            return "gebe"
-        elif N == "you":
-            return "gibst"
-        elif N == "he" or N == "she" or N == "it":
-            return "gibt"
-        elif N == "we":
-            return "geben"
-        elif N == "You":
-            return "geben"
-        elif N == "youguys":
-            return "gebt"
-        
-    if verb == "help":
-        if N == "i":
-            return "helfe"
-        elif N == "you":
-            return "hilfst"
-        elif N == "he" or N == "she" or N == "it":
-            return "hilft"
-        elif N == "we":
-            return "helfen"
-        elif N == "You":
-            return "helfen"
-        elif N == "youguys":
-            return "helft"        
+def get_verb():
+    # 随机获取动词
+    verb_conjugation = get_yaml("verb.yaml")
+    return random.choice(list(verb_conjugation)) 
 
 def get_verb_conjugation(verb, proun):
+    # 获取动词变位后形式
     verb_conjugation = get_yaml("verb_conjugation.yaml")
-
     return verb_conjugation[verb][proun]
 
-
 def check_n_a():
+    # 随机出题，校验一格四格熟悉度
     personal_pronoun = get_yaml("nda.yaml")
-    # 随机出题
     N_proun = random.choice(list(personal_pronoun)) 
     A_proun = random.choice(list(personal_pronoun))
     verb_eng = "give"
     ques = "{} {} {} ".format(N_proun,verb_eng, A_proun)
     #一格用N，四格用A的数据
-    verb_deu = conjugation(verb_eng, N_proun)
+    verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['A'])
     print(ques)
     input_str = input("Enter your answer: \n").strip()
@@ -85,7 +59,6 @@ def check_n_d():
         print('Correct')
     else:
         print('Wrong! correct Answer is : {} !'.format(answer))    
-
 
 
 if __name__ == "__main__":
