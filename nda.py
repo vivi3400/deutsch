@@ -20,12 +20,33 @@ def conjugation(verb, N):
             return "gebe"
         elif N == "you":
             return "gibst"
-        elif N == "he" or N == "she" or N == "es" or N == "youguys":
+        elif N == "he" or N == "she" or N == "it":
             return "gibt"
         elif N == "we":
             return "geben"
         elif N == "You":
             return "geben"
+        elif N == "youguys":
+            return "gebt"
+        
+    if verb == "help":
+        if N == "i":
+            return "helfe"
+        elif N == "you":
+            return "hilfst"
+        elif N == "he" or N == "she" or N == "it":
+            return "hilft"
+        elif N == "we":
+            return "helfen"
+        elif N == "You":
+            return "helfen"
+        elif N == "youguys":
+            return "helft"        
+
+def get_verb_conjugation(verb, proun):
+    verb_conjugation = get_yaml("verb_conjugation.yaml")
+
+    return verb_conjugation[verb][proun]
 
 
 def check_n_a():
@@ -46,6 +67,27 @@ def check_n_a():
     else:
         print('Wrong! correct Answer is : {} !'.format(answer))
 
+def check_n_d():
+
+    personal_pronoun = get_yaml("nda.yaml")
+    # 随机出题
+    N_proun = random.choice(list(personal_pronoun)) 
+    A_proun = random.choice(list(personal_pronoun))
+    verb_eng = "help"
+    ques = "{} {} {} ".format(N_proun,verb_eng, A_proun)
+    #一格用N，四格用A的数据
+    verb_deu = get_verb_conjugation(verb_eng, N_proun)
+    answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['D'])
+    print(ques)
+    input_str = input("Enter your answer: \n").strip()
+
+    if input_str == answer:
+        print('Correct')
+    else:
+        print('Wrong! correct Answer is : {} !'.format(answer))    
+
+
+
 if __name__ == "__main__":
-    check_n_a()
+    check_n_d()
     
