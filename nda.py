@@ -62,7 +62,10 @@ def check_n_d():
     get_input_and_verify(answer)
 
 def check_noun_of_A():
-    # 随机出题，校验定冠词、不定冠词四格训练
+    '''
+    随机出题，校验定冠词、不定冠词四格训练
+    人三物四    
+    '''
     personal_pronoun = get_yaml("nda.yaml")
     noun = get_yaml("nda_the.yaml")
     N_proun = random.choice(list(personal_pronoun)) 
@@ -78,9 +81,9 @@ def check_noun_of_A():
     get_input_and_verify(answer)
 
 if __name__ == "__main__":
-    ques_list = [check_n_d, check_n_a, check_the]
+    ques_list = [check_n_d, check_n_a, check_noun_of_A]
     while True:
         # 随机出题
         # random.choice(ques_list)()
-        check_the()
+        check_noun_of_A()
     
