@@ -2,7 +2,7 @@ import random
 import yaml
 import os
 
-def get_yaml(fileName):
+def get_yaml(fileName) -> dict:
 # 获取当前脚本所在文件夹路径
     curPath = os.path.dirname(os.path.realpath(__file__))
     # 获取yaml文件路径
@@ -61,10 +61,26 @@ def check_n_d():
 
     get_input_and_verify(answer)
 
+def check_noun_of_A():
+    # 随机出题，校验定冠词、不定冠词四格训练
+    personal_pronoun = get_yaml("nda.yaml")
+    noun = get_yaml("nda_the.yaml")
+    N_proun = random.choice(list(personal_pronoun)) 
+    D_proun = random.choice(list(personal_pronoun))
+    A_noun = random.choice(list(noun))
+    verb_eng = "give"
+    ques = "{} {} {} {}".format(N_proun,verb_eng, D_proun, A_noun)
+    print(ques)
+    #一格用N，四格用A的数据
+    verb_deu = get_verb_conjugation(verb_eng, N_proun)
+    answer = "{} {} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[D_proun]['D'], noun[A_noun]['A'])
+
+    get_input_and_verify(answer)
+
 if __name__ == "__main__":
-    ques_list = [check_n_d, check_n_a]
+    ques_list = [check_n_d, check_n_a, check_the]
     while True:
         # 随机出题
-        random.choice(ques_list)()
-        # check_n_d()
+        # random.choice(ques_list)()
+        check_the()
     
