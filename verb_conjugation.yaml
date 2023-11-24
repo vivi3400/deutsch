@@ -18,4 +18,34 @@ help:
   youguys: helft  
   You: helfen
   them: helfen  
+thank:
+  i: danke
+  you: dankst
+  he: dankt
+  she: dankt
+  it: dankt
+  we: danken
+  youguys: dankt  
+  You: danken
+  them: danken  
+answer:
+  i: antworte
+  you: antwortest
+  he: antwortet
+  she: antwortet
+  it: antwortet
+  we: antworten
+  youguys: antwortet  
+  You: antworten
+  them: antworten  
+belongto:
+  i: gehöre
+  you: gehörst
+  he: gehört
+  she: gehört
+  it: gehört
+  we: gehören
+  youguys: gehört  
+  You: gehören
+  them: gehören        
 
