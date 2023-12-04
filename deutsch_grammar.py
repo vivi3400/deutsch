@@ -33,7 +33,7 @@ def get_verb_vi():
 
 def get_verb_conjugation(verb, proun):
     # 获取动词变位后形式
-    verb_conjugation = get_yaml("verb_conjugation.yaml")
+    verb_conjugation = get_yaml("deutsch_yaml/verb_conjugation.yaml")
     return verb_conjugation[verb][proun]
 
 def check_n_a():
@@ -126,8 +126,9 @@ def check_adjective_A():
 if __name__ == "__main__":
     # nda_ques_list = [check_n_d, check_n_a, check_noun_of_A] #一三四格检验
     adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
+    ques_all_list = [check_n_d, check_n_a, check_noun_of_A,check_adjective_D, check_adjective_A]
     while True:
         # 随机出题
-        random.choice(adj_ques_list)()
+        random.choice(ques_all_list)()
         # check_adjective_D()
     
