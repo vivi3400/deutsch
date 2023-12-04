@@ -70,7 +70,7 @@ def check_noun_of_A():
     人三物四    
     '''
     personal_pronoun = get_yaml("deutsch_yaml/nda.yaml")
-    noun = get_yaml("nda_the.yaml")
+    noun = get_yaml("deutsch_yaml/nda_the.yaml")
     N_proun = random.choice(list(personal_pronoun)) 
     D_proun = random.choice(list(personal_pronoun))
     A_noun = random.choice(list(noun))
