@@ -1,24 +1,24 @@
-abook:
+a book:
   N: ein Buch
   D: einem Buch 
   A: ein Buch
-thebook:
+the book:
   N: das Buch
   D: dem Buch 
   A: das Buch
-acat:
+a cat:
   N: eine Katze
   D: einer Katze 
   A: eine Katze
-thecat:
+the cat:
   N: die Katze
   D: def Katze 
   A: die Katze
-adog:
+a dog:
   N: ein Hund
   D: einem Hund 
   A: einen Hund
-thedog:
+the dog:
   N: der Hund
   D: dem Hund 
   A: den Hund       
