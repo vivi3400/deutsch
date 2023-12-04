@@ -28,7 +28,7 @@ def get_input_and_verify(answer):
 
 def get_verb_vi():
     # 随机获取动词
-    verb_conjugation = get_yaml("verb_vi.yaml")
+    verb_conjugation = get_yaml("deutsch_yaml/verb_vi.yaml")
     return random.choice(list(verb_conjugation)) 
 
 def get_verb_conjugation(verb, proun):
@@ -38,7 +38,7 @@ def get_verb_conjugation(verb, proun):
 
 def check_n_a():
     # 随机出题，校验一格四格熟悉度
-    personal_pronoun = get_yaml("nda.yaml")
+    personal_pronoun = get_yaml("deutsch_yaml/nda.yaml")
     N_proun = random.choice(list(personal_pronoun)) 
     A_proun = random.choice(list(personal_pronoun))
     verb_eng = "love"
@@ -51,7 +51,7 @@ def check_n_a():
 
 def check_n_d():
     # 随机出题，校验一格三格熟悉度
-    personal_pronoun = get_yaml("nda.yaml")
+    personal_pronoun = get_yaml("deutsch_yaml/nda.yaml")
     N_proun = random.choice(list(personal_pronoun)) 
     A_proun = random.choice(list(personal_pronoun))
     verb_eng = get_verb_vi() 
@@ -69,7 +69,7 @@ def check_noun_of_A():
     随机出题，校验定冠词、不定冠词四格训练
     人三物四    
     '''
-    personal_pronoun = get_yaml("nda.yaml")
+    personal_pronoun = get_yaml("deutsch_yaml/nda.yaml")
     noun = get_yaml("nda_the.yaml")
     N_proun = random.choice(list(personal_pronoun)) 
     D_proun = random.choice(list(personal_pronoun))
@@ -83,10 +83,51 @@ def check_noun_of_A():
 
     get_input_and_verify(answer)
 
+def check_adjective_D():
+    '''
+    形容词检查
+    he thank the beautiful girl 
+    she liebe the beautiful man
+    they liebe the beautiful cinema
+    '''
+    personal_pronoun = get_yaml("deutsch_yaml/nda.yaml")
+    adj_list = get_yaml("deutsch_yaml/adjective.yaml")
+    N_proun = random.choice(list(personal_pronoun)) 
+    adj = random.choice(list(adj_list))
+    verb_eng = get_verb_vi() #不及物动词，后面接3格
+    ques = "{} {} {} ".format(N_proun,verb_eng, adj)
+    print(ques)
+    #一格用N，四格用A的数据
+    verb_deu = get_verb_conjugation(verb_eng, N_proun)
+    answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, adj_list[adj]['D'])  
+
+    get_input_and_verify(answer)
+
+def check_adjective_A():
+    '''
+    形容词检查
+    he thank the beautiful girl 
+    she liebe the beautiful man
+    they liebe the beautiful cinema
+    '''
+    personal_pronoun = get_yaml("deutsch_yaml/nda.yaml")
+    adj_list = get_yaml("deutsch_yaml/adjective.yaml")
+    N_proun = random.choice(list(personal_pronoun)) 
+    adj = random.choice(list(adj_list))
+    verb_eng = "love"
+    ques = "{} {} {} ".format(N_proun,verb_eng, adj)
+    print(ques)
+    #一格用N，四格用A的数据
+    verb_deu = get_verb_conjugation(verb_eng, N_proun)
+    answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, adj_list[adj]['A'])  
+
+    get_input_and_verify(answer)    
+
 if __name__ == "__main__":
-    ques_list = [check_n_d, check_n_a, check_noun_of_A]
+    # nda_ques_list = [check_n_d, check_n_a, check_noun_of_A] #一三四格检验
+    adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
     while True:
         # 随机出题
-        # random.choice(ques_list)()
-        check_noun_of_A()
+        random.choice(adj_ques_list)()
+        # check_adjective_D()
     

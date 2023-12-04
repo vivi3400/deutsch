@@ -1,11 +1,11 @@
-i:
-  N: ich
-  D: mir
-  A: mich
-you:
-  N: du
-  D: dir
-  A: dich
+# i:
+#   N: ich
+#   D: mir
+#   A: mich
+# you:
+#   N: du
+#   D: dir
+#   A: dich
 he:
   N: er
   D: ihm
