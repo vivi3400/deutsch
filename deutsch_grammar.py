@@ -21,9 +21,10 @@ def get_input_and_verify(answer):
 
     if input_str == answer:
         print('Correct')
+        return 1
     else:
         print('Wrong! correct Answer is : {} !'.format(answer))
-    print('--------------')    
+        return 0
 
 
 def get_verb_vi():
@@ -47,7 +48,7 @@ def check_n_a():
     #一格用N，四格用A的数据
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['A'])
-    get_input_and_verify(answer)
+    return get_input_and_verify(answer)
 
 def check_n_d():
     # 随机出题，校验一格三格熟悉度
@@ -62,7 +63,7 @@ def check_n_d():
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[A_proun]['D'])
 
 
-    get_input_and_verify(answer)
+    return get_input_and_verify(answer)
 
 def check_noun_of_A():
     '''
@@ -81,7 +82,7 @@ def check_noun_of_A():
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, personal_pronoun[D_proun]['D'], noun[A_noun]['A'])
 
-    get_input_and_verify(answer)
+    return get_input_and_verify(answer)
 
 def check_adjective_D():
     '''
@@ -101,7 +102,7 @@ def check_adjective_D():
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, adj_list[adj]['D'])  
 
-    get_input_and_verify(answer)
+    return get_input_and_verify(answer)
 
 def check_adjective_A():
     '''
@@ -121,14 +122,19 @@ def check_adjective_A():
     verb_deu = get_verb_conjugation(verb_eng, N_proun)
     answer = "{} {} {}".format(personal_pronoun[N_proun]['N'], verb_deu, adj_list[adj]['A'])  
 
-    get_input_and_verify(answer)    
+    return get_input_and_verify(answer)    
 
 if __name__ == "__main__":
     # nda_ques_list = [check_n_d, check_n_a, check_noun_of_A] #一三四格检验
     adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
     ques_all_list = [check_n_d, check_n_a, check_noun_of_A,check_adjective_D, check_adjective_A]
+    total = 0
+    total_correct = 0
     while True:
         # 随机出题
-        random.choice(ques_all_list)()
+        total += 1
+        correct = random.choice(ques_all_list)()
+        total_correct += correct
+        # print("{} Correct Rate".format(round(total_correct/total,2)))
         # check_adjective_D()
     
