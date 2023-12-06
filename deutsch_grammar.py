@@ -1,19 +1,7 @@
 import random
-import yaml
-import os
+from yaml_reader import *
 
-def get_yaml(fileName) -> dict:
-# 获取当前脚本所在文件夹路径
-    curPath = os.path.dirname(os.path.realpath(__file__))
-    # 获取yaml文件路径
-    yamlPath = os.path.join(curPath, fileName)
-    # open方法打开直接读出来
-    with open(yamlPath, 'r', encoding='utf-8') as f:
-        config = f.read()
-    d = yaml.load(config,Loader=yaml.FullLoader)  # 用load方法转字典
-    return d
-
-def get_input_and_verify(answer):
+def get_input_and_verify(answer: str) -> int:
     '''
     根据input来校验结果
     '''
@@ -27,7 +15,7 @@ def get_input_and_verify(answer):
         return 0
 
 
-def get_verb_vi():
+def get_verb_vi() -> str:
     # 随机获取动词
     verb_conjugation = get_yaml("deutsch_yaml/verb_vi.yaml")
     return random.choice(list(verb_conjugation)) 
@@ -135,6 +123,7 @@ if __name__ == "__main__":
         total += 1
         correct = random.choice(ques_all_list)()
         total_correct += correct
+
         # print("{} Correct Rate".format(round(total_correct/total,2)))
         # check_adjective_D()
     

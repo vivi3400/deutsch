@@ -1,0 +1,16 @@
+bread:
+  meaning: Brot
+  meaning.pl: Brote
+  gender: n
+coffee:
+  meaning: Kaffee
+  meaning.pl: Kaffee
+  gender: f
+rice:
+  meaning: Reis
+  meaning.pl: o.pl
+  gender: m
+fish:
+  meaning: Fisch
+  meaning.pl: Fische
+  gender: m  

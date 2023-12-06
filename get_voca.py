@@ -1,5 +1,7 @@
 import requests
 import json
+from yaml_reader import *
+
 headers = {'content-type': 'application/json'}
 def post_data(url, data):
     json_data = json.dumps
@@ -13,28 +15,13 @@ def get_data(url):
 
 
 def get_gender(word: str):
-    property = None
-
-    url = 'https://www.godic.net/dicts/prefix/{}'.format(word) 
-
-    raw_data = (get_data(url=url))
+    verb_lexicon = get_yaml("deutsch_yaml/voca.yaml")
     
     try:
-        first_meaning = (raw_data[0]['label'])
+        return verb_lexicon[word]['gender'], verb_lexicon[word]['meaning']
     except:
         return None
-    
-    if 'f.' in first_meaning:
-        property = "f"
-    elif 'n.' in first_meaning:
-        property = 'n'
-    elif 'm.' in first_meaning:
-        property = 'm'
-    # for _ in raw_data:
-    #     print(_['label'])
-
-    return property
 
 if __name__ == "__main__":
-    r = get_gender("Form")
+    r = get_gender("fish")
     print(r)
