@@ -33,3 +33,13 @@ def get_possessive_deut(eng):
     # 获取动词变位后形式
     possessive_prounoun = get_yaml("deutsch_yaml/possessive_pronoun.yaml")
     return possessive_prounoun[eng]['N.m']
+
+def get_adjective_eng():
+    # 获取动词变位后形式
+    adjective = get_yaml("deutsch_yaml/adjective.yaml")
+    return random.choice(list(adjective))    
+
+def get_adjective_deut(eng, possessive):
+    # 获取动词变位后形式
+    possessive_prounoun = get_yaml("deutsch_yaml/adjective.yaml")
+    return possessive_prounoun[eng][possessive]

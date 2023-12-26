@@ -30,11 +30,22 @@ def check_possessive_N():
 
     return get_input_and_verify(answer)
 
+
+def check_adjective_suffix_N():
+    eng = get_adjective_eng()
+    ques = "{}".format(eng)
+    print(ques)
+    deut = get_adjective_deut(eng, "N")
+    answer = "{}".format(deut)
+    return get_input_and_verify(answer)
+
+
+
 if __name__ == "__main__":
 
 
 
-    ques_list = [check_possessive_N] #一三四格检验
+    ques_list = [check_adjective_suffix_N] #一三四格检验
     # adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
     # ques_all_list = [check_n_d, check_n_a, check_noun_of_A,check_adjective_D, check_adjective_A]
     total = 0

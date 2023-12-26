@@ -1,0 +1,17 @@
+m.N:
+  the: der-e
+  a: ein-er
+  0: -er
+n.N:
+  the: das-e
+  a: ein-es
+  0: -es
+f.N:
+  the: die-e
+  a: eine-e
+  0: -e 
+pl.N
+  the: die-en 
+  a: -
+  0: -e
+
