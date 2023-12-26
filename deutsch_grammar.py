@@ -1,29 +1,9 @@
 import random
 from yaml_reader import *
-
-def get_input_and_verify(answer: str) -> int:
-    '''
-    根据input来校验结果
-    '''
-    input_str = input("").strip()
-
-    if input_str == answer:
-        print('Correct')
-        return 1
-    else:
-        print('Wrong! correct Answer is : {} !'.format(answer))
-        return 0
-
-
-def get_verb_vi() -> str:
-    # 随机获取动词
-    verb_conjugation = get_yaml("deutsch_yaml/verb_vi.yaml")
-    return random.choice(list(verb_conjugation)) 
-
-def get_verb_conjugation(verb, proun):
-    # 获取动词变位后形式
-    verb_conjugation = get_yaml("deutsch_yaml/verb_conjugation.yaml")
-    return verb_conjugation[verb][proun]
+from deutsch_tools import *
+'''
+一三四格校验
+'''
 
 def check_n_a():
     # 随机出题，校验一格四格熟悉度

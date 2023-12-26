@@ -2,16 +2,32 @@ my:
   N.m: mein
   D.m: meinem
   A.m: meinen
-yours:
-  N.m: 
+your:
+  N.m: dein
   D.m: 
   A.m: 
-  N.n: 
-  D.n: 
-  A.n: 
-  N.f: 
-  D.f: 
-  A.f:  
-  N.pl: 
-  D.pl: 
-  A.pl:      
+his:
+  N.m: sein
+  D.m: 
+  A.m: 
+shes:
+  N.m: ihr
+  D.m: 
+  A.m: 
+its:
+  N.m: sein
+  D.m: 
+  A.m: 
+your(s):
+  N.m: euer
+  D.m: 
+  A.m: 
+ours:
+  N.m: unser
+  D.m: 
+  A.m: 
+their:
+  N.m: ihr
+  D.m: 
+  A.m:   
+                  
