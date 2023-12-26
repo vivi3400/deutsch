@@ -4,19 +4,43 @@ the small girl:
   D: der netten Frau
   A: die nette Frau
 a small girl:
-  N: 
-  G: 
-  G: 
-  A:
+  N: eine nette Frau
+  G: einer netter Frau
+  D: einer netten Frau
+  A: eine nette Frau
+small gril:
+  N: nette Frau
+  G: netter Frau
+  D: netter Frau
+  A: nette Frau
 the small man:
   N: der nette Mann
   G: des netten Mann
   D: dem netten Mann
   A: den netten Mann
+a small man:
+  N: ein netter Mann
+  G: eines netten Mann
+  D: einem netten Mann
+  A: einen netten Mann
+small man:
+  N: netter Mann
+  G: netten Mann
+  D: nettem Mann
+  A: netten Mann
 the small cinema:
   N: das nette Kino
   G: des netten Kino
   D: dem netten Kino
   A: das nette Kino
-
+a small cinema:
+  N: ein nettes Kino
+  G: eines netten Kino
+  D: einem netten Kino
+  A: eines nettes Kino
+small cinema:
+  N: nettes Kino
+  G: netten Kino
+  D: nettem Kino
+  A: nettes Kino
       
