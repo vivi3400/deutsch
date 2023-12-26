@@ -1,11 +1,11 @@
 from yaml_reader import *
 import random
 
-def get_input_and_verify(answer: str) -> int:
+def get_input_and_verify(answer: str, answer_part: str="") -> int:
     '''
     根据input来校验结果
     '''
-    input_str = input("").strip()
+    input_str = input("{}".format(answer_part)).strip()
 
     if input_str == answer:
         print('Correct')

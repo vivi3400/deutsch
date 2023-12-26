@@ -27,10 +27,9 @@ def check_possessive_N():
     ques = "{} {}".format(possessive_eng, noun_eng)
     answer = "{} {}".format(possessive_deut, noun_deut)
     print(ques)
-
     return get_input_and_verify(answer)
 
-
+# 形容词一格词尾
 def check_adjective_suffix_N():
     eng = get_adjective_eng()
     ques = "{}".format(eng)
@@ -39,13 +38,32 @@ def check_adjective_suffix_N():
     answer = "{}".format(deut)
     return get_input_and_verify(answer)
 
+# 形容词四格词尾
+def check_adjective_suffix_A():
+    eng = get_adjective_eng()
+    ques = "i love {}".format(eng)
+    print(ques)
+    deut = get_adjective_deut(eng, "A")
+    answerPart = "Er liebt "
+    answer = "{}".format(deut)
+    return get_input_and_verify(answer=answer, answer_part=answerPart)
+
+# 形容词三格词尾
+def check_adjective_suffix_D():
+    eng = get_adjective_eng()
+    ques = "i help {}".format(eng)
+    print(ques)
+    deut = get_adjective_deut(eng, "D")
+    answerPart = "ich helfe "
+    answer = "{}".format(deut)
+    return get_input_and_verify(answer=answer, answer_part=answerPart)
 
 
 if __name__ == "__main__":
 
 
 
-    ques_list = [check_adjective_suffix_N] #一三四格检验
+    ques_list = [check_adjective_suffix_A] #一三四格检验
     # adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
     # ques_all_list = [check_n_d, check_n_a, check_noun_of_A,check_adjective_D, check_adjective_A]
     total = 0
