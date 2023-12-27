@@ -35,6 +35,7 @@ def check_adjective_suffix_N():
     ques = "{}".format(eng)
     print(ques)
     deut = get_adjective_deut(eng, "N")
+    answerPart = ""
     answer = "{}".format(deut)
     return get_input_and_verify(answer)
 
@@ -61,19 +62,18 @@ def check_adjective_suffix_D():
 
 if __name__ == "__main__":
 
-
-
-    ques_list = [check_adjective_suffix_A] #一三四格检验
+    ques_list = [check_adjective_suffix_N] #一三四格检验
     # adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
     # ques_all_list = [check_n_d, check_n_a, check_noun_of_A,check_adjective_D, check_adjective_A]
     total = 0
     total_correct = 0
-    while True:
-        # 随机出题
-        total += 1
-        correct = random.choice(ques_list)()
-        total_correct += correct
+    try:
+        while True:
+            # 随机出题
+            total += 1
+            correct = random.choice(ques_list)()
+            total_correct += correct
+    except KeyboardInterrupt:
+        print("\n  {} Correct Rate".format(round(total_correct/total,2)))
 
-        # print("{} Correct Rate".format(round(total_correct/total,2)))
-        # check_adjective_D()
      
