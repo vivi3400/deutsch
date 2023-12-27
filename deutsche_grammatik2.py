@@ -42,7 +42,7 @@ def check_adjective_suffix_N():
 # 形容词四格词尾
 def check_adjective_suffix_A():
     eng = get_adjective_eng()
-    ques = "i love {}".format(eng)
+    ques = "he loves {}".format(eng)
     print(ques)
     deut = get_adjective_deut(eng, "A")
     answerPart = "Er liebt "
@@ -52,17 +52,26 @@ def check_adjective_suffix_A():
 # 形容词三格词尾
 def check_adjective_suffix_D():
     eng = get_adjective_eng()
-    ques = "i help {}".format(eng)
+    ques = "you help {}".format(eng)
     print(ques)
     deut = get_adjective_deut(eng, "D")
-    answerPart = "ich helfe "
+    answerPart = "du hilfst "
     answer = "{}".format(deut)
     return get_input_and_verify(answer=answer, answer_part=answerPart)
 
+# 形容词二格词尾
+def check_adjective_suffix_G():
+    eng = get_adjective_eng()
+    ques = "car of {}".format(eng)
+    print(ques)
+    deut = get_adjective_deut(eng, "G")
+    answerPart = "Auto "
+    answer = "{}".format(deut)
+    return get_input_and_verify(answer=answer, answer_part=answerPart)
 
 if __name__ == "__main__":
 
-    ques_list = [check_adjective_suffix_N] #一三四格检验
+    ques_list = [check_adjective_suffix_G] #一三四格检验
     # adj_ques_list = [check_adjective_D, check_adjective_A] #形容词检验
     # ques_all_list = [check_n_d, check_n_a, check_noun_of_A,check_adjective_D, check_adjective_A]
     total = 0
@@ -74,6 +83,7 @@ if __name__ == "__main__":
             correct = random.choice(ques_list)()
             total_correct += correct
     except KeyboardInterrupt:
+        total_correct+=1
         print("\n  {} Correct Rate".format(round(total_correct/total,2)))
 
      
